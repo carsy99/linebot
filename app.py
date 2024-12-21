@@ -9,6 +9,8 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
+from datetime import datetime
+import pytz
 from linebot.models import *
 import re
 app = Flask(__name__)
@@ -18,7 +20,9 @@ line_bot_api = LineBotApi('TicAFdiC42N04QEKQNbCPpHk+wKiJEP/+oiXzVefrfwTFBYzfIxmM
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('34363ce357ba3f84f7b7d467de436ad4')
 
-line_bot_api.push_message('Ufdcb6f045f7bd653ef96bb0b7c541cd6', TextSendMessage(text='你可以開始了'))
+tz = pytz.timezone('Asia/Taipei')
+current_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
+line_bot_api.push_message('Ufdcb6f045f7bd653ef96bb0b7c541cd6', TextSendMessage(text=f'您好，目前時間是 {current_time} ，請問需要什麼服務呢?'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -49,8 +53,18 @@ def handle_message(event):
             duration=81000
         )
         line_bot_api.reply_message(event.reply_token, audio_message)
+
+    elif message == "今天是我的生日":
+        image_message = ImageSendMessage(
+            original_content_url="https://img.lovepik.com/free-template/20210106/bg/d4e0b6dd02a87.png_detail.jpg!detail808",
+            preview_image_url="https://img.lovepik.com/free-template/20210106/bg/d4e0b6dd02a87.png_detail.jpg!detail808"
+        )
+        text_message = TextSendMessage(text="生日快樂！希望你有個美好的一天 🎉🎂")
+        line_bot_api.reply_message(event.reply_token, [image_message, text_message])
+    
     else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=message))
+
 #主程式
 import os
 if __name__ == "__main__":
