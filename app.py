@@ -49,6 +49,9 @@ def callback():
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
 
+    # 發送初始化訊息
+    send_initial_message()
+
     # handle webhook body
     try:
         handler.handle(body, signature)
