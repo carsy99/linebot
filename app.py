@@ -107,23 +107,23 @@ def handle_message(event):
                 columns=[
                     ImageCarouselColumn(
                         image_url='https://cdn2.ettoday.net/images/5441/e5441375.jpg',  # 圖片 1: 春聯
-                        action=MessageAction(
+                        action=PostbackAction(
                             label='春聯的由來',
-                            text='春聯最早起源於桃符，據說是用來驅邪的。後來演變為現在的紅色對聯，寓意喜慶與平安。'
+                            data='info_spring_couplet'
                         )
                     ),
                     ImageCarouselColumn(
                         image_url='https://cdn01.pinkoi.com/product/WFbGXeRf/2/640x530.jpg',  # 圖片 2: 紅包
-                        action=MessageAction(
+                        action=PostbackAction(
                             label='紅包的故事',
-                            text='紅包代表著祝福與吉祥，特別是在農曆新年，長輩會將紅包送給晚輩，象徵一年的好運。'
+                            data='info_red_packet'
                         )
                     ),
                     ImageCarouselColumn(
                         image_url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3ad5fa70124225.5b98e5817ae7e.jpg',  # 圖片 3: 年獸
-                        action=MessageAction(
+                        action=PostbackAction(
                             label='年獸傳說',
-                            text='年獸是一種傳說中的怪物，每逢除夕會出來騷擾人們。後來人們發現它害怕紅色、火光與聲響，便有了放鞭炮的習俗。'
+                            data='info_nian_beast'
                         )
                     )
                 ]
@@ -150,7 +150,7 @@ def handle_message(event):
 def handle_postback(event):
     data = event.postback.data
     
-    # 定義各種回覆選項
+    # 運勢
     fortunes = {
         "fortune_health": [
             "身體素質還算不錯，須配合氣候調整飲食與穿著",
@@ -181,9 +181,18 @@ def handle_postback(event):
             "事業進展平穩，但需避免過於冒進"
         ]
     }
-    
-    # 根據 postback data 隨機選擇一段回應
-    reply_text = random.choice(fortunes.get(data, ["未能識別的請求"]))
+
+    # 小知識邏輯
+    knowledge_responses = {
+        'info_spring_couplet': '春聯最早起源於桃符，據說是用來驅邪的。後來演變為現在的紅色對聯，寓意喜慶與平安。',
+        'info_red_packet': '紅包代表著祝福與吉祥，特別是在農曆新年，長輩會將紅包送給晚輩，象徵一年的好運。',
+        'info_nian_beast': '年獸是一種傳說中的怪物，每逢除夕會出來騷擾人們。後來人們發現它害怕紅色、火光與聲響，便有了放鞭炮的習俗。'
+    }
+    # 統一回應邏輯
+    if data in fortunes:
+        reply_text = random.choice(fortunes[data])
+    else:
+        reply_text = knowledge_responses.get(data, "抱歉，我不清楚這個請求的內容。")
     
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
 
