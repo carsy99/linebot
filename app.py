@@ -71,7 +71,30 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, flex_message)
 
+    elif re.match('圖片', message):
+        image_list = [
+            "https://imgur.com/GeiH7G0",
+            "https://imgur.com/mR9xSkz",
+            "https://imgur.com/phpdKgF",
+            "https://imgur.com/sWRlimt"
+            "https://imgur.com/N0C90ym",
+            "https://imgur.com/Bup9ULg",
+            "https://imgur.com/v1tnbWm",
+            "https://imgur.com/YuaduGv", 
+            "https://imgur.com/DZ6Y4nS"
+            
+        ]
+        # 隨機選擇一張圖片
+        selected_image = random.choice(image_list)
 
+        # 傳送隨機圖片給使用者
+        line_bot_api.reply_message(
+            event.reply_token,
+            ImageSendMessage(
+                original_content_url=selected_image,
+                preview_image_url=selected_image
+            )
+        )
     
     elif message == "今天是我的生日":
         image_message = ImageSendMessage(
