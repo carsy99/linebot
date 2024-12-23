@@ -56,15 +56,19 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, audio_message)
 
-    elif re.match('新年運勢占卜',message):
-        flex_message = TextSendMessage(text='請點選您想占卜的是',
-                               quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="健康運", data="fortune_health")),
-                                   QuickReplyButton(action=MessageAction(label="桃花運", data="fortune_love")),
-                                   QuickReplyButton(action=MessageAction(label="財運", data="fortune_money")),
-                                   QuickReplyButton(action=MessageAction(label="事業運", data="fortune_career"))
-                               ]))
-        line_bot_api.reply_message(event.reply_token, flex_message)
+    elif re.match('新年運勢占卜', message):
+    flex_message = TextSendMessage(
+        text='請點選您想占卜的是',
+        quick_reply=QuickReply(
+            items=[
+                QuickReplyButton(action=PostbackAction(label="健康運", data="fortune_health")),
+                QuickReplyButton(action=PostbackAction(label="桃花運", data="fortune_love")),
+                QuickReplyButton(action=PostbackAction(label="財運", data="fortune_money")),
+                QuickReplyButton(action=PostbackAction(label="事業運", data="fortune_career")),
+            ]
+        )
+    )
+    line_bot_api.reply_message(event.reply_token, flex_message)
 
 
     
