@@ -95,6 +95,40 @@ def handle_message(event):
                 preview_image_url=selected_image
             )
         )
+
+    elif re.match('過年小知識', message):
+        image_carousel_template_message = TemplateSendMessage(
+            alt_text='過年小知識圖片輪播',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://cdn2.ettoday.net/images/5441/e5441375.jpg',  # 圖片 1: 春聯
+                        action=PostbackAction(
+                            label='春聯由來',
+                            display_text='春聯的由來',
+                            uri='https://zh.wikipedia.org/wiki/春聯'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://cdn01.pinkoi.com/product/WFbGXeRf/2/640x530.jpg',  # 圖片 2: 紅包
+                        action=PostbackAction(
+                            label='紅包故事',
+                            display_text='紅包的意義',
+                            uri='https://zh.wikipedia.org/wiki/紅包'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3ad5fa70124225.5b98e5817ae7e.jpg',  # 圖片 3: 年獸
+                        action=PostbackAction(
+                            label='年獸傳說',
+                            display_text='年獸的傳說',
+                            uri='https://zh.wikipedia.org/zh-tw/%E5%B9%B4%E7%8D%B8'
+                        )
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
     
     elif message == "今天是我的生日":
         image_message = ImageSendMessage(
