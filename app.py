@@ -27,11 +27,17 @@ def calculate_days_to_new_year():
     days_left = (lunar_new_year - today).days
     return days_left
 
-tz = pytz.timezone('Asia/Taipei')
-current_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
-days_left = calculate_days_to_new_year()
-line_bot_api.push_message('Ufdcb6f045f7bd653ef96bb0b7c541cd6', TextSendMessage(text=f'您好，目前時間是 {current_time} ，距離農曆新年還有 {calculate_days_to_new_year()} 天！請問需要什麼服務呢?'))
-    
+def send_initial_message():
+    tz = pytz.timezone('Asia/Taipei')
+    current_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
+    days_left = calculate_days_to_new_year()
+    message = f"您好，目前時間是 {current_time} ，距離農曆新年還有 {days_left} 天！請問需要什麼服務呢?"
+    user_id = 'Ufdcb6f045f7bd653ef96bb0b7c541cd6' 
+
+#tz = pytz.timezone('Asia/Taipei')
+#current_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
+#line_bot_api.push_message('Ufdcb6f045f7bd653ef96bb0b7c541cd6', TextSendMessage(text=f'您好，目前時間是 {current_time} ，距離農曆新年還有 {calculate_days_to_new_year()} 天！請問需要什麼服務呢?'))
+
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
