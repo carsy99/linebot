@@ -20,10 +20,21 @@ line_bot_api = LineBotApi('TicAFdiC42N04QEKQNbCPpHk+wKiJEP/+oiXzVefrfwTFBYzfIxmM
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('34363ce357ba3f84f7b7d467de436ad4')
 
-tz = pytz.timezone('Asia/Taipei')
-current_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
-line_bot_api.push_message('Ufdcb6f045f7bd653ef96bb0b7c541cd6', TextSendMessage(text=f'您好，目前時間是 {current_time} ，請問需要什麼服務呢?'))
+lunar_new_year = datetime(2025, 1, 29)
+def calculate_days_to_new_year():
+    tz = pytz.timezone('Asia/Taipei')
+    today = datetime.now(tz)
+    days_left = (lunar_new_year - today).days
+    return days_left
 
+def send_initial_message():
+    tz = pytz.timezone('Asia/Taipei')
+    current_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
+    days_left = calculate_days_to_new_year()
+    message = f"您好，目前時間是 {current_time} ，距離農曆新年還有 {days_left} 天！請問需要什麼服務呢?"
+    # 替換為實際的使用者 ID
+    user_id = 'Ufdcb6f045f7bd653ef96bb0b7c541cd6'
+    
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -57,10 +68,10 @@ def handle_message(event):
     elif re.match('新年運勢占卜',message):
         flex_message = TextSendMessage(text='請點選您想占卜的是',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="健康運", text="health")),
-                                   QuickReplyButton(action=MessageAction(label="桃花運", text="love")),
-                                   QuickReplyButton(action=MessageAction(label="財運", text="money")),
-                                   QuickReplyButton(action=MessageAction(label="事業運", text="business"))
+                                   QuickReplyButton(action=MessageAction(label="健康運", text="身體素質還算不錯，須配合氣候調整飲食與穿著")),
+                                   QuickReplyButton(action=MessageAction(label="桃花運", text="今年會吸引有意者，但須辨別真心與虛情")),
+                                   QuickReplyButton(action=MessageAction(label="財運", text="小心謹慎，必有不意之財")),
+                                   QuickReplyButton(action=MessageAction(label="事業運", text="今年事業運旺，努力會有回報"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
     
@@ -80,3 +91,7 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+
+
+
+
