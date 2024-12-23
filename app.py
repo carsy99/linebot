@@ -59,12 +59,14 @@ def handle_message(event):
     elif re.match('新年運勢占卜',message):
         flex_message = TextSendMessage(text='請點選您想占卜的是',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="健康運", text="身體素質還算不錯，須配合氣候調整飲食與穿著")),
-                                   QuickReplyButton(action=MessageAction(label="桃花運", text="今年會吸引有意者，但須辨別真心與虛情")),
-                                   QuickReplyButton(action=MessageAction(label="財運", text="小心謹慎，必有不意之財")),
-                                   QuickReplyButton(action=MessageAction(label="事業運", text="今年事業運旺，努力會有回報"))
+                                   QuickReplyButton(action=MessageAction(label="健康運", data="fortune_health")),
+                                   QuickReplyButton(action=MessageAction(label="桃花運", data="fortune_love")),
+                                   QuickReplyButton(action=MessageAction(label="財運", data="fortune_money")),
+                                   QuickReplyButton(action=MessageAction(label="事業運", data="fortune_career"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
+
+
     
     elif message == "今天是我的生日":
         image_message = ImageSendMessage(
@@ -76,6 +78,24 @@ def handle_message(event):
     
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=message))
+
+
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    data = event.postback.data
+    if data == "fortune_health":
+        reply_text = "身體素質還算不錯，須配合氣候調整飲食與穿著"
+    elif data == "fortune_love":
+        reply_text = "今年會吸引有意者，但須辨別真心與虛情"
+    elif data == "fortune_money":
+        reply_text = "小心謹慎，必有不意之財"
+    elif data == "fortune_career":
+        reply_text = "今年事業運旺，努力會有回報"
+    else:
+        reply_text = "未能識別的請求"
+
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
 
 #主程式
 import os
