@@ -11,6 +11,7 @@ from linebot.exceptions import (
 )
 from datetime import datetime
 import pytz
+import random
 from linebot.models import *
 import re
 app = Flask(__name__)
@@ -88,17 +89,42 @@ def handle_message(event):
 @handler.add(PostbackEvent)
 def handle_postback(event):
     data = event.postback.data
-    if data == "fortune_health":
-        reply_text = "身體素質還算不錯，須配合氣候調整飲食與穿著"
-    elif data == "fortune_love":
-        reply_text = "今年會吸引有意者，但須辨別真心與虛情"
-    elif data == "fortune_money":
-        reply_text = "小心謹慎，必有不意之財"
-    elif data == "fortune_career":
-        reply_text = "今年事業運旺，努力會有回報"
-    else:
-        reply_text = "未能識別的請求"
-
+    
+    # 定義各種回覆選項
+    fortunes = {
+        "fortune_health": [
+            "身體素質還算不錯，須配合氣候調整飲食與穿著",
+            "注意日常作息，健康是最大的本錢",
+            "今年容易感冒，記得補充維生素",
+            "適當運動有助於提高免疫力",
+            "健康狀況良好，但偶爾也要放鬆身心"
+        ],
+        "fortune_love": [
+            "今年會吸引有意者，但須辨別真心與虛情",
+            "感情運平穩，但需多用心經營",
+            "有機會邂逅對的人，保持心態開放",
+            "感情中可能會有小波折，但能順利解決",
+            "桃花旺盛，但不要被表象迷惑"
+        ],
+        "fortune_money": [
+            "小心謹慎，必有不意之財",
+            "獲利的速度沒有很快，但能逐步累積",
+            "記得控制花費，不要衝動消費",
+            "偏財運佳，有機會中獎或獲得意外收入",
+            "今年的財運適合穩中求進，投資需謹慎"
+        ],
+        "fortune_career": [
+            "今年事業運旺，努力會有回報",
+            "有升遷或加薪的機會，把握好時機",
+            "需要多與同事合作，團隊精神是關鍵",
+            "工作壓力稍大，但能順利完成目標",
+            "事業進展平穩，但需避免過於冒進"
+        ]
+    }
+    
+    # 根據 postback data 隨機選擇一段回應
+    reply_text = random.choice(fortunes.get(data, ["未能識別的請求"]))
+    
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_text))
 
 #主程式
