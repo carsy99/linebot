@@ -102,21 +102,21 @@ def handle_message(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://cdn2.ettoday.net/images/5441/e5441375.jpg',  # 圖片 1: 春聯
+                        image_url='https://cdn2.ettoday.net/images/5441/e5441375.jpg',
                         action=URIAction(
                             label='春聯的由來',
                             uri='https://zh.wikipedia.org/wiki/春聯'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://cdn01.pinkoi.com/product/WFbGXeRf/2/640x530.jpg',  # 圖片 2: 紅包
+                        image_url='https://cdn01.pinkoi.com/product/WFbGXeRf/2/640x530.jpg',
                         action=URIAction(
                             label='紅包的故事',
                             uri='https://zh.wikipedia.org/wiki/紅包'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3ad5fa70124225.5b98e5817ae7e.jpg',  # 圖片 3: 年獸
+                        image_url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3ad5fa70124225.5b98e5817ae7e.jpg',
                         action=URIAction(
                             label='年獸傳說',
                             uri='https://zh.wikipedia.org/zh-tw/%E5%B9%B4%E7%8D%B8'
