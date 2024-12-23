@@ -95,11 +95,7 @@ def handle_message(event):
                 preview_image_url=selected_image
             )
         )
-
-
-
-
-    
+   
     elif re.match('過年小知識', message):
         image_carousel_template_message = TemplateSendMessage(
             alt_text='過年小知識圖片輪播',
@@ -132,6 +128,136 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
 
 
+    elif re.match('過年菜單推薦', message):
+        # Flex Message 過年菜單推薦
+        flex_message = FlexSendMessage(
+            alt_text='過年菜單推薦',
+            contents={
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://i.imgur.com/3YsMyrn.jpg",  # 過年餐桌的圖片
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover"
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "md",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "過年必備菜單",
+                            "size": "xl",
+                            "weight": "bold",
+                            "align": "center"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "spacing": "sm",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                        {
+                                            "type": "icon",
+                                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "text": "年糕 - 步步高升",
+                                            "weight": "bold",
+                                            "margin": "sm",
+                                            "flex": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                        {
+                                            "type": "icon",
+                                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "text": "魚 - 年年有餘",
+                                            "weight": "bold",
+                                            "margin": "sm",
+                                            "flex": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                        {
+                                            "type": "icon",
+                                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "text": "湯圓 - 團團圓圓",
+                                            "weight": "bold",
+                                            "margin": "sm",
+                                            "flex": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                        {
+                                            "type": "icon",
+                                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "text": "長年菜 - 長長久久",
+                                            "weight": "bold",
+                                            "margin": "sm",
+                                            "flex": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "text": "了解更多過年料理，享受傳統年味！",
+                            "wrap": True,
+                            "color": "#aaaaaa",
+                            "size": "xxs",
+                            "align": "center"
+                        }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "style": "primary",
+                            "color": "#905c44",
+                            "margin": "xxl",
+                            "action": {
+                                "type": "uri",
+                                "label": "查看更多食譜",
+                                "uri": "https://zh.wikipedia.org/wiki/春節食品"
+                            }
+                        }
+                    ]
+                }
+            }
+        )
+        line_bot_api.reply_message(event.reply_token, flex_message)
     
     elif message == "今天是我的生日":
         image_message = ImageSendMessage(
