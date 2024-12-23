@@ -96,36 +96,41 @@ def handle_message(event):
             )
         )
 
+
+
+
+    
     elif re.match('過年小知識', message):
         image_carousel_template_message = TemplateSendMessage(
             alt_text='過年小知識圖片輪播',
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://cdn2.ettoday.net/images/5441/e5441375.jpg',
-                        action=URIAction(
+                        image_url='https://cdn2.ettoday.net/images/5441/e5441375.jpg',  # 圖片 1: 春聯
+                        action=MessageAction(
                             label='春聯的由來',
-                            uri='https://zh.wikipedia.org/wiki/春聯'
+                            text='春聯最早起源於桃符，據說是用來驅邪的。後來演變為現在的紅色對聯，寓意喜慶與平安。'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://cdn01.pinkoi.com/product/WFbGXeRf/2/640x530.jpg',
-                        action=URIAction(
+                        image_url='https://cdn01.pinkoi.com/product/WFbGXeRf/2/640x530.jpg',  # 圖片 2: 紅包
+                        action=MessageAction(
                             label='紅包的故事',
-                            uri='https://zh.wikipedia.org/wiki/紅包'
+                            text='紅包代表著祝福與吉祥，特別是在農曆新年，長輩會將紅包送給晚輩，象徵一年的好運。'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3ad5fa70124225.5b98e5817ae7e.jpg',
-                        action=URIAction(
+                        image_url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3ad5fa70124225.5b98e5817ae7e.jpg',  # 圖片 3: 年獸
+                        action=MessageAction(
                             label='年獸傳說',
-                            uri='https://zh.wikipedia.org/zh-tw/%E5%B9%B4%E7%8D%B8'
+                            text='年獸是一種傳說中的怪物，每逢除夕會出來騷擾人們。後來人們發現它害怕紅色、火光與聲響，便有了放鞭炮的習俗。'
                         )
                     )
                 ]
             )
         )
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+
 
     
     elif message == "今天是我的生日":
