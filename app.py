@@ -33,6 +33,7 @@ def send_initial_message():
     days_left = calculate_days_to_new_year()
     message = f"您好，目前時間是 {current_time} ，距離農曆新年還有 {days_left} 天！請問需要什麼服務呢?"
     user_id = 'Ufdcb6f045f7bd653ef96bb0b7c541cd6' 
+    line_bot_api.push_message(user_id, TextSendMessage(text=message))
 
 #tz = pytz.timezone('Asia/Taipei')
 #current_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
