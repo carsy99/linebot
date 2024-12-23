@@ -54,6 +54,16 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, audio_message)
 
+    elif re.match('新年運勢占卜',message):
+        flex_message = TextSendMessage(text='請點選您想占卜的是',
+                               quick_reply=QuickReply(items=[
+                                   QuickReplyButton(action=MessageAction(label="健康運", text="health")),
+                                   QuickReplyButton(action=MessageAction(label="桃花運", text="love")),
+                                   QuickReplyButton(action=MessageAction(label="財運", text="money")),
+                                   QuickReplyButton(action=MessageAction(label="事業運", text="business"))
+                               ]))
+        line_bot_api.reply_message(event.reply_token, flex_message)
+    
     elif message == "今天是我的生日":
         image_message = ImageSendMessage(
             original_content_url="https://img.lovepik.com/free-template/20210106/bg/d4e0b6dd02a87.png_detail.jpg!detail808",
