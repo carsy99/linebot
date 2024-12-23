@@ -73,15 +73,15 @@ def handle_message(event):
 
     elif re.match('圖片', message):
         image_list = [
-            "https://imgur.com/GeiH7G0",
-            "https://imgur.com/mR9xSkz",
-            "https://imgur.com/phpdKgF",
-            "https://imgur.com/sWRlimt"
-            "https://imgur.com/N0C90ym",
-            "https://imgur.com/Bup9ULg",
-            "https://imgur.com/v1tnbWm",
-            "https://imgur.com/YuaduGv", 
-            "https://imgur.com/DZ6Y4nS"
+            "https://i.imgur.com/GeiH7G0.png",
+            "https://i.imgur.com/mR9xSkz.png",
+            "https://i.imgur.com/phpdKgF.jpeg",
+            "https://i.imgur.com/sWRlimt.jpeg"
+            "https://i.imgur.com/N0C90ym.jpeg",
+            "https://i.imgur.com/Bup9ULg.jpeg",
+            "https://i.imgur.com/v1tnbWm.jpeg",
+            "https://i.imgur.com/YuaduGv.jpeg", 
+            "https://i.imgur.com/DZ6Y4nS.jpeg"
             
         ]
         # 隨機選擇一張圖片
