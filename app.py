@@ -124,6 +124,48 @@ def handle_message(event):
                             label='年獸傳說',
                             data='info_nian_beast'
                         )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://watermark.lovepik.com/photo/40009/2423.jpg_wh1200.jpg',  # 圖片 4: 團圓飯
+                        action=PostbackAction(
+                            label='團圓飯的意義',
+                            data='info_reunion_dinner'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://www.peponews.tw/wp-content/uploads/2019/01/685050_0.jpg',  # 圖片 5: 放鞭炮
+                        action=PostbackAction(
+                            label='放鞭炮的習俗',
+                            data='info_firecracker'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://cn.chinadaily.com.cn/img/attachement/jpg/site1/20180217/d8cb8a3d71831bf1c00f30.jpg',  # 圖片 7: 新衣服
+                        action=PostbackAction(
+                            label='過年穿新衣',
+                            data='info_new_clothes'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://img2.voc.com.cn/remote/2021/02/08/1029_f8f5ecf91c799a9cdf6d4a2bafef440d59dbaa78.jpg',  # 圖片 8: 倒貼福字
+                        action=PostbackAction(
+                            label='倒貼福字的由來',
+                            data='info_upside_down_fu'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://thumbor.4gamers.com.tw/C_7ZkPIHSKI4xUjoqRR3y3J-QwU=/adaptive-fit-in/1200x1200/filters:no_upscale():extract_cover():format(jpeg):quality(85)/https%3A%2F%2Fugc-media.4gamers.com.tw%2Fpuku-prod-zh%2Fanonymous-story%2Fc5f5cd51-6da2-4976-9340-62f61440bbc9.jpg',  # 圖片 9: 大掃除
+                        action=PostbackAction(
+                            label='過年大掃除',
+                            data='info_spring_cleaning'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://doqvf81n9htmm.cloudfront.net/data/TommyHuang_147/all/%E5%B9%B4%E8%8F%9C.jpg',  # 圖片 10: 過年菜肴
+                        action=PostbackAction(
+                            label='過年吃什麼',
+                            data='info_new_year_food'
+                        )
                     )
                 ]
             )
@@ -280,7 +322,13 @@ def handle_postback(event):
     knowledge_responses = {
         'info_spring_couplet': '春聯 最早起源於桃符，據說是用來驅邪的。後來演變為現在的紅色對聯，寓意喜慶與平安。',
         'info_red_packet': '紅包 代表著祝福與吉祥，特別是在農曆新年，長輩會將紅包送給晚輩，象徵一年的好運。',
-        'info_nian_beast': '年獸 是一種傳說中的怪物，每逢除夕會出來騷擾人們。後來人們發現它害怕紅色、火光與聲響，便有了放鞭炮的習俗。'
+        'info_nian_beast': '年獸 是一種傳說中的怪物，每逢除夕會出來騷擾人們。後來人們發現它害怕紅色、火光與聲響，便有了放鞭炮的習俗。',
+        'info_reunion_dinner': '團圓飯 是除夕夜全家團聚共享的晚餐，象徵家人團聚、幸福美滿。常見的菜色包括魚、雞、年糕等，寓意美好祝願。',
+        'info_firecracker': '放鞭炮 是過年期間的重要習俗，聲響可以驅走年獸與邪氣，同時增添節日的熱鬧氣氛。',
+        'info_new_clothes': '過年穿新衣 象徵除舊佈新，迎接新的一年的新氣象，也帶來嶄新的希望。',
+        'info_upside_down_fu': '倒貼福字 是過年一種有趣的習俗，“福倒了”與“福到了”諧音，寓意福氣到來，增添節日的喜慶氣氛。',
+        'info_spring_cleaning': '過年大掃除 是農曆年前的傳統習俗，清理家中的灰塵與舊物，象徵送走過去的不順，迎接全新的開始。',
+        'info_new_year_food': '過年菜肴 象徵著對新年的美好祝願，如魚代表“年年有餘”，長年菜寓意“長長久久”，年糕則寓意“步步高升”。'
     }
     # 統一回應邏輯
     if data in fortunes:
