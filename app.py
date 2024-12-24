@@ -81,8 +81,11 @@ def handle_message(event):
             "https://i.imgur.com/Bup9ULg.jpeg",
             "https://i.imgur.com/v1tnbWm.jpeg",
             "https://i.imgur.com/YuaduGv.jpeg", 
-            "https://i.imgur.com/DZ6Y4nS.jpeg"
-            
+            "https://i.imgur.com/DZ6Y4nS.jpeg",
+            "https://stage.taipei101mall.com.tw/uploads/content/4644d118-c050-92d6-dffa-4fe18a0798e6.jpg",
+            "https://i0.wp.com/salespower.com.tw/wp-content/uploads/2024/09/2025%E8%9B%87%E5%B9%B4.png",
+            "https://hips.hearstapps.com/hmg-prod/images/new-year-card-with-a-cute-snake-in-a-santa-royalty-free-illustration-1731315137.jpg",
+            "https://shopee.tw/blog/wp-content/uploads/2024/01/bd9876fb352dc552b3426d2fa65b63a5.jpg"     
         ]
         # 隨機選擇一張圖片
         selected_image = random.choice(image_list)
@@ -244,32 +247,32 @@ def handle_postback(event):
     # 運勢
     fortunes = {
         "fortune_health": [
-            "身體素質還算不錯，須配合氣候調整飲食與穿著",
-            "注意日常作息，健康是最大的本錢",
-            "今年容易感冒，記得補充維生素",
-            "適當運動有助於提高免疫力",
-            "健康狀況良好，但偶爾也要放鬆身心"
+            "身體素質還算不錯👍，須配合氣候調整飲食與穿著",
+            "注意日常作息，健康是最大的本錢💵",
+            "今年容易感冒😷，記得補充維生素🥦",
+            "適當運動有助於提高免疫力🏃‍➡️",
+            "健康狀況良好，但偶爾也要放鬆身心☺️"
         ],
         "fortune_love": [
-            "今年會吸引有意者，但須辨別真心與虛情",
-            "感情運平穩，但需多用心經營",
-            "有機會邂逅對的人，保持心態開放",
-            "感情中可能會有小波折，但能順利解決",
-            "桃花旺盛，但不要被表象迷惑"
+            "今年會吸引有意者，但須辨別真心與虛情🤔",
+            "感情運平穩，但需多用心經營🙂",
+            "有機會邂逅對的人，保持心態開放🤗",
+            "感情中可能會有小波折，但能順利解決👌",
+            "桃花旺盛，但不要被表象迷惑🫸"
         ],
         "fortune_money": [
-            "小心謹慎，必有不意之財",
-            "獲利的速度沒有很快，但能逐步累積",
-            "記得控制花費，不要衝動消費",
-            "偏財運佳，有機會中獎或獲得意外收入",
-            "今年的財運適合穩中求進，投資需謹慎"
+            "小心謹慎，必🈶不意之財💵",
+            "獲利的速度沒有很快，但能逐步累積💹",
+            "記得控制花費，不要衝動消費💸",
+            "偏財運佳，🈶機會中獎或獲得意外收入💰",
+            "今年的財運適合穩中求進，投資需謹慎🪙"
         ],
         "fortune_career": [
-            "今年事業運旺，努力會有回報",
-            "有升遷或加薪的機會，把握好時機",
-            "需要多與同事合作，團隊精神是關鍵",
-            "工作壓力稍大，但能順利完成目標",
-            "事業進展平穩，但需避免過於冒進"
+            "今年事業運旺，努力會🈶回報",
+            "有升遷⤴️或加薪⤴️的機會，把握好時機",
+            "需要多與同事合作，團隊精神是關鍵👥",
+            "工作壓力稍大，但能順利完成目標✅",
+            "事業進展平穩，但需避免過於冒進📋"
         ]
     }
 
