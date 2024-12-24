@@ -71,7 +71,7 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, flex_message)
 
-    elif re.match('圖片', message):
+    elif re.match('年味圖片', message):
         image_list = [
             "https://i.imgur.com/GeiH7G0.png",
             "https://i.imgur.com/mR9xSkz.png",
@@ -128,7 +128,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
 
 
-    elif re.match('過年菜單推薦', message):
+    elif re.match('年菜推薦', message):
         menu_carousel_template = TemplateSendMessage(
             alt_text="過年菜單推薦",
             template=CarouselTemplate(
@@ -182,7 +182,7 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, menu_carousel_template)
 
-    elif re.match('音樂', message):
+    elif re.match('音樂分享', message):
         # 定義音樂清單
         music_list = [
             "https://www.youtube.com/watch?v=5qap5aO4i9A",  # Lofi music
@@ -201,7 +201,7 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, reply_message)
 
-    elif re.match('祝福語', message):
+    elif re.match('祝福語音', message):
         audio_list = [
             {
                 "url": "https://your-audio-storage.com/happy_new_year.mp3",
