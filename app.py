@@ -201,6 +201,28 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, reply_message)
 
+    elif re.match('祝福語', message):
+        audio_list = [
+            {
+                "url": "https://your-audio-storage.com/happy_new_year.mp3",
+                "text": "祝您新年快樂！",
+                "duration": 5000
+            },
+            {
+                "url": "https://your-audio-storage.com/congratulations.mp3",
+                "text": "恭喜發財！",
+                "duration": 4500
+            }
+        ]
+    
+        selected_audio = random.choice(audio_list)
+    
+        text_message = TextSendMessage(text=selected_audio["text"])
+        audio_message = AudioSendMessage(
+            original_content_url=selected_audio["url"],
+            duration=selected_audio["duration"]
+        )
+        line_bot_api.reply_message(event.reply_token, [text_message, audio_message])
     
     elif message == "今天是我的生日":
         image_message = ImageSendMessage(
