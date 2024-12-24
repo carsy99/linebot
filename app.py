@@ -25,7 +25,7 @@ tz = pytz.timezone('Asia/Taipei')
 lunar_new_year = tz.localize(datetime(2025, 1, 29))
 current_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
 days_left = (lunar_new_year - datetime.now(tz)).days
-line_bot_api.push_message('Ufdcb6f045f7bd653ef96bb0b7c541cd6', TextSendMessage(text=f'您好，目前時間是 {current_time} ，距離農曆新年還有 {days_left} 天！請問需要什麼服務呢?'))
+line_bot_api.push_message('Ufdcb6f045f7bd653ef96bb0b7c541cd6', TextSendMessage(text=f'🤖您好～目前時間是 {current_time} ，距離農曆新年還有 {days_left} 天！可點選下方選單迎新春🧧'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -136,7 +136,7 @@ def handle_message(event):
                     CarouselColumn(
                         thumbnail_image_url="https://api.elle.com.hk/var/site/storage/images/3/5/5/6/38236553-1-chi-HK/9.jpg",  # 年糕圖片
                         title="年糕 - 步步高升",
-                        text="象徵步步高升的甜點，適合全家共享！",
+                        text="象徵步步高升⬆️的甜點，適合全家共享！",
                         actions=[
                             URIAction(
                                 label="查看年糕食譜",
@@ -147,7 +147,7 @@ def handle_message(event):
                     CarouselColumn(
                         thumbnail_image_url="https://i.ytimg.com/vi/INHXNskGlGQ/maxresdefault.jpg",  # 魚圖片
                         title="魚 - 年年有餘",
-                        text="不可或缺的魚料理，代表著豐足和富裕。",
+                        text="不可或缺的魚🐟料理，代表著豐足和富裕。",
                         actions=[
                             URIAction(
                                 label="查看魚料理食譜",
@@ -158,7 +158,7 @@ def handle_message(event):
                     CarouselColumn(
                         thumbnail_image_url="https://i.epochtimes.com/assets/uploads/2022/12/id13882696-b6ba05c4b2cb55cb0021978e62ad6e75.jpg",  # 湯圓圖片
                         title="湯圓 - 團團圓圓",
-                        text="甜蜜的湯圓寓意著一家人團聚。",
+                        text="甜蜜的🔴湯圓⚪寓意著一家人團聚。",
                         actions=[
                             URIAction(
                                 label="查看湯圓食譜",
@@ -169,7 +169,7 @@ def handle_message(event):
                     CarouselColumn(
                         thumbnail_image_url="https://images.chinatimes.com/newsphoto/2022-01-29/656/20220129003093.jpg",  # 長年菜圖片
                         title="長年菜 - 長長久久",
-                        text="象徵健康長壽的必備青菜。",
+                        text="象徵健康長壽的必備青菜🥬。",
                         actions=[
                             URIAction(
                                 label="查看長年菜食譜",
@@ -185,11 +185,11 @@ def handle_message(event):
     elif re.search('音樂分享', message):
         # 定義音樂清單
         music_list = [
-            "https://www.youtube.com/watch?v=5qap5aO4i9A",  # Lofi music
-            "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",  # Mark Ronson - Uptown Funk
-            "https://www.youtube.com/watch?v=60ItHLz5WEA",  # Alan Walker - Faded
-            "https://www.youtube.com/watch?v=OPf0YbXqDm0",  # Bruno Mars - Uptown Funk
-            "https://www.youtube.com/watch?v=kJQP7kiw5Fk",  # Luis Fonsi - Despacito
+            "https://www.youtube.com/watch?v=_VCAeYVYmyI",  # 千金娃娃 - 恭喜恭喜 《童星飞舞闹新年》
+            "https://www.youtube.com/watch?v=Fz9GLF8Vcek",  # 財神到
+            "https://www.youtube.com/watch?v=b4SRZurGg1c",  # 劉德華Andy Lau-恭喜發財(Gong Xi Fa Cai)
+            "https://www.youtube.com/watch?v=_mmpY-Si4sc",  # 七個隆咚鏘
+            "https://www.youtube.com/watch?v=VGnOpZhsPk4",  # ATEEZ(에이티즈) - 'WORK' Official MV
         ]
     
         # 隨機選擇一首音樂
@@ -197,7 +197,7 @@ def handle_message(event):
     
         # 回應訊息
         reply_message = TextSendMessage(
-            text=f"為您推薦音樂：\n{selected_music}"
+            text=f"🎼為您推薦音樂：\n{selected_music}"
         )
         line_bot_api.reply_message(event.reply_token, reply_message)
 
