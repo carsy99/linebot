@@ -221,6 +221,72 @@ def handle_message(event):
                                 uri="https://icook.tw/recipes/463687"
                             )
                         ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url="https://img.ltn.com.tw/Upload/food/page/2015/11/19/151119-716-0-YOtoq.jpg",  # 獅子頭圖片
+                        title="獅子頭 - 團團圓圓",
+                        text="大大的獅子頭🦁象徵團圓和喜氣！",
+                        actions=[
+                            URIAction(
+                                label="查看獅子頭食譜",
+                                uri="https://icook.tw/recipes/461553"
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url="https://www.unileverfoodsolutions.tw/dam/global-ufs/mcos/na/taiwan/calcmenu/recipes/TW-recipes/general/%E5%8F%B0%E5%BC%8F%E6%A5%B5%E5%93%81%E4%BD%9B%E8%B7%B3%E7%89%86/main-header.jpg",  # 佛跳牆圖片
+                        title="佛跳牆 - 招財進寶",
+                        text="🧱多種食材熬製，寓意財富與富貴。",
+                        actions=[
+                            URIAction(
+                                label="查看佛跳牆食譜",
+                                uri="https://icook.tw/recipes/454556"
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url="https://tokyo-kitchen.icook.network/uploads/recipe/cover/344880/3ed01d080c54cdf9.jpg",  # 蘿蔔糕圖片
+                        title="蘿蔔糕 - 好運年年",
+                        text="蒸糕象徵步步高升⬆️，是年節必備糕點。",
+                        actions=[
+                            URIAction(
+                                label="查看蘿蔔糕食譜",
+                                uri="https://icook.tw/recipes/412165"
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url="https://img.ltn.com.tw/Upload/food/page/2020/01/22/200122-10227-0-VZ4kN.jpg",  # 八寶飯圖片
+                        title="八寶飯 - 豐收與團圓",
+                        text="甜美的八寶飯象徵豐收與圓滿⭕。",
+                        actions=[
+                            URIAction(
+                                label="查看八寶飯食譜",
+                                uri="https://icook.tw/recipes/454083"
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url="https://i1.kknews.cc/wscmuiUc4F5c4cgljS0Ldhxt_yBeYxeMiw/0.jpg",  # 水晶餃圖片
+                        title="水晶餃 - 聚財進寶",
+                        text="晶瑩剔透的餃子寓意財富滿滿🤑。",
+                        actions=[
+                            URIAction(
+                                label="查看水晶餃食譜",
+                                uri="https://icook.tw/recipes/450546"
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url="https://tokyo-kitchen.icook.network/uploads/category/background/50/6ae919ff4b3c9ae9.jpg",  # 更多料理圖片
+                        title="更多料理推薦",
+                        text="探索更多過年菜肴🫕，豐富你的年節餐桌❗",
+                        actions=[
+                            URIAction(
+                                label="探索更多食譜",
+                                uri="https://icook.tw/categories/50"
+                            )
+                        ]
                     )
                 ]
             )
