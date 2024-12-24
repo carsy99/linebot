@@ -181,6 +181,45 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, menu_carousel_template)
+
+    elif re.match('音樂', message):
+        music_data = [
+            {
+                "title": "Lofi Music",
+                "url": "https://www.youtube.com/watch?v=5qap5aO4i9A",
+                "thumbnail": "https://img.youtube.com/vi/5qap5aO4i9A/0.jpg"
+            },
+            {
+                "title": "Alan Walker - Faded",
+                "url": "https://www.youtube.com/watch?v=60ItHLz5WEA",
+                "thumbnail": "https://img.youtube.com/vi/60ItHLz5WEA/0.jpg"
+            },
+        ]
+    
+        # 隨機選擇音樂
+        selected_music = random.choice(music_data)
+    
+        # 建立 Carousel Template
+        music_carousel_template = TemplateSendMessage(
+            alt_text="音樂推薦",
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url=selected_music['thumbnail'],
+                        title=selected_music['title'],
+                        text="點擊播放音樂",
+                        actions=[
+                            URIAction(
+                                label="播放音樂",
+                                uri=selected_music['url']
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, music_carousel_template)
+
     
     elif message == "今天是我的生日":
         image_message = ImageSendMessage(
