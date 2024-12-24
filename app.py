@@ -183,42 +183,23 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, menu_carousel_template)
 
     elif re.match('音樂', message):
-        music_data = [
-            {
-                "title": "Lofi Music",
-                "url": "https://www.youtube.com/watch?v=5qap5aO4i9A",
-                "thumbnail": "https://img.youtube.com/vi/5qap5aO4i9A/0.jpg"
-            },
-            {
-                "title": "Alan Walker - Faded",
-                "url": "https://www.youtube.com/watch?v=60ItHLz5WEA",
-                "thumbnail": "https://img.youtube.com/vi/60ItHLz5WEA/0.jpg"
-            },
+        # 定義音樂清單
+        music_list = [
+            "https://www.youtube.com/watch?v=5qap5aO4i9A",  # Lofi music
+            "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",  # Mark Ronson - Uptown Funk
+            "https://www.youtube.com/watch?v=60ItHLz5WEA",  # Alan Walker - Faded
+            "https://www.youtube.com/watch?v=OPf0YbXqDm0",  # Bruno Mars - Uptown Funk
+            "https://www.youtube.com/watch?v=kJQP7kiw5Fk",  # Luis Fonsi - Despacito
         ]
     
-        # 隨機選擇音樂
-        selected_music = random.choice(music_data)
+        # 隨機選擇一首音樂
+        selected_music = random.choice(music_list)
     
-        # 建立 Carousel Template
-        music_carousel_template = TemplateSendMessage(
-            alt_text="音樂推薦",
-            template=CarouselTemplate(
-                columns=[
-                    CarouselColumn(
-                        thumbnail_image_url=selected_music['thumbnail'],
-                        title=selected_music['title'],
-                        text="點擊播放音樂",
-                        actions=[
-                            URIAction(
-                                label="播放音樂",
-                                uri=selected_music['url']
-                            )
-                        ]
-                    )
-                ]
-            )
+        # 回應訊息
+        reply_message = TextSendMessage(
+            text=f"為您推薦音樂：\n{selected_music}"
         )
-        line_bot_api.reply_message(event.reply_token, music_carousel_template)
+        line_bot_api.reply_message(event.reply_token, reply_message)
 
     
     elif message == "今天是我的生日":
