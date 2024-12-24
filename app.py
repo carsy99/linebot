@@ -130,7 +130,7 @@ def handle_message(event):
 
     elif re.match('過年菜單推薦', message):
         # Flex Message 過年菜單推薦
-        flex_message = FlexSendMessage(
+        menu_message = FlexSendMessage(
             alt_text='過年菜單推薦',
             contents={
                 "type": "bubble",
@@ -257,7 +257,7 @@ def handle_message(event):
                 }
             }
         )
-        line_bot_api.reply_message(event.reply_token, flex_message)
+        line_bot_api.reply_message(event.reply_token, menu_message)
     
     elif message == "今天是我的生日":
         image_message = ImageSendMessage(
