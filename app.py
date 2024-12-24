@@ -131,35 +131,51 @@ def handle_message(event):
     elif re.match('過年菜單推薦', message):
         menu_carousel_template = TemplateSendMessage(
             alt_text="過年菜單推薦",
-            template=ImageCarouselTemplate(
+            template=CarouselTemplate(
                 columns=[
-                    ImageCarouselColumn(
-                        image_url="https://api.elle.com.hk/var/site/storage/images/3/5/5/6/38236553-1-chi-HK/9.jpg",  # 年糕圖片
-                        action=URIAction(
-                            label="年糕食譜",
-                            uri="https://icook.tw/recipes/431575"  # 年糕食譜網址
-                        )
+                    CarouselColumn(
+                        thumbnail_image_url="https://api.elle.com.hk/var/site/storage/images/3/5/5/6/38236553-1-chi-HK/9.jpg",  # 年糕圖片
+                        title="年糕 - 步步高升",
+                        text="象徵步步高升的甜點，適合全家共享！",
+                        actions=[
+                            URIAction(
+                                label="查看年糕食譜",
+                                uri="https://icook.tw/recipes/431575"  # 年糕食譜網址
+                            )
+                        ]
                     ),
-                    ImageCarouselColumn(
-                        image_url="https://i.ytimg.com/vi/INHXNskGlGQ/maxresdefault.jpg",  # 魚圖片
-                        action=URIAction(
-                            label="魚料理食譜",
-                            uri="https://icook.tw/recipes/464311"
-                        )
+                    CarouselColumn(
+                        thumbnail_image_url="https://i.ytimg.com/vi/INHXNskGlGQ/maxresdefault.jpg",  # 魚圖片
+                        title="魚 - 年年有餘",
+                        text="不可或缺的魚料理，代表著豐足和富裕。",
+                        actions=[
+                            URIAction(
+                                label="查看魚料理食譜",
+                                uri="https://icook.tw/recipes/464311"
+                            )
+                        ]
                     ),
-                    ImageCarouselColumn(
-                        image_url="https://i.epochtimes.com/assets/uploads/2022/12/id13882696-b6ba05c4b2cb55cb0021978e62ad6e75.jpg",  # 湯圓圖片
-                        action=URIAction(
-                            label="湯圓食譜",
-                            uri="https://icook.tw/recipes/470783"
-                        )
+                    CarouselColumn(
+                        thumbnail_image_url="https://i.epochtimes.com/assets/uploads/2022/12/id13882696-b6ba05c4b2cb55cb0021978e62ad6e75.jpg",  # 湯圓圖片
+                        title="湯圓 - 團團圓圓",
+                        text="甜蜜的湯圓寓意著一家人團聚。",
+                        actions=[
+                            URIAction(
+                                label="查看湯圓食譜",
+                                uri="https://icook.tw/recipes/470783"
+                            )
+                        ]
                     ),
-                    ImageCarouselColumn(
-                        image_url="https://images.chinatimes.com/newsphoto/2022-01-29/656/20220129003093.jpg",  # 長年菜圖片
-                        action=URIAction(
-                            label="長年菜食譜",
-                            uri="https://icook.tw/recipes/463687"
-                        )
+                    CarouselColumn(
+                        thumbnail_image_url="https://images.chinatimes.com/newsphoto/2022-01-29/656/20220129003093.jpg",  # 長年菜圖片
+                        title="長年菜 - 長長久久",
+                        text="象徵健康長壽的必備青菜。",
+                        actions=[
+                            URIAction(
+                                label="查看長年菜食譜",
+                                uri="https://icook.tw/recipes/463687"
+                            )
+                        ]
                     )
                 ]
             )
