@@ -82,7 +82,6 @@ def handle_message(event):
             "https://i.imgur.com/v1tnbWm.jpeg",
             "https://i.imgur.com/YuaduGv.jpeg", 
             "https://i.imgur.com/DZ6Y4nS.jpeg",
-            "https://stage.taipei101mall.com.tw/uploads/content/4644d118-c050-92d6-dffa-4fe18a0798e6.jpg",
             "https://i0.wp.com/salespower.com.tw/wp-content/uploads/2024/09/2025%E8%9B%87%E5%B9%B4.png",
             "https://hips.hearstapps.com/hmg-prod/images/new-year-card-with-a-cute-snake-in-a-santa-royalty-free-illustration-1731315137.jpg",
             "https://shopee.tw/blog/wp-content/uploads/2024/01/bd9876fb352dc552b3426d2fa65b63a5.jpg"     
