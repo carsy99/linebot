@@ -314,14 +314,29 @@ def handle_message(event):
     elif re.search('祝福語音', message):
         audio_list = [
             {
-                "url": "https://your-audio-storage.com/happy_new_year.mp3",
-                "text": "祝您新年快樂！",
+                "url": "https://drive.google.com/uc?export=download&id=1XArJcbL11FGK2a1qkjFl-ELMWl-Oa9IE",
+                "text": "新年快樂🎉",
                 "duration": 5000
             },
             {
-                "url": "https://your-audio-storage.com/congratulations.mp3",
-                "text": "恭喜發財！",
+                "url": "https://drive.google.com/uc?export=download&id=11lApE2O5NTHmNoEtQNnWD63CDDLi5T35",
+                "text": "蛇年祝你魯蛇🐍翻身，運氣不斷！",
                 "duration": 4500
+            },
+            {
+                "url": "https://drive.google.com/uc?export=download&id=1Wiyxr8zmzdXdbglr5kT3hdMoc75BH1aR",
+                "text": "🐍蛇年萬事亨通，闔家幸福美🈵！",
+                "duration": 6000
+            },
+            {
+                "url": "https://drive.google.com/uc?export=download&id=1dnmuRDYeEfXKeB_9x709Kg8HfjQu9L0V",
+                "text": "恭祝🐍蛇年順風順水，萬事如意！",
+                "duration": 5500
+            },
+            {
+                "url": "https://drive.google.com/uc?export=download&id=1mACW0B7UtTO_JrTNdYFpdGkbPwuzMNxR",
+                "text": "🎊恭喜發財，🧧紅包拿來！",
+                "duration": 4800
             }
         ]
     
